@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/Orange">
+        <TextView
+            android:id="@+id/tituloCoinFlipper"
+            style="@style/TituloEstilo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COINFLIPPER" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/botonNormalAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/normal"
+                android:layout_toStartOf="@+id/btnCombateAction"
+                android:onClick="btnNormalAction"
+                android:layout_marginRight="20dp" />
+
+            <ImageView
+                android:id="@+id/btnCombateAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/combate"
+                android:layout_toStartOf="@+id/botonResultado"
+                android:onClick="btnCombateAction"
+                android:layout_marginRight="20dp"
+                />
+            <ImageView
+                android:id="@+id/botonResultado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/resultado"
+                android:layout_alignParentEnd="true"
+                android:onClick="btnResultado"/>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+</com.google.android.material.appbar.AppBarLayout>

@@ -5,14 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+<!--Incluimos la toolbar-->
+    <include
+        layout="@layout/toolbar"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+    <!--Incluimos la Titulo de la app-->
 
     <TextView
+        android:id="@+id/tituloCoinFlipperInicio"
+        style="@style/TituloEstilo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="COINFLIPPER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.369" />
+
+    <!--Incluimos el boton para pasar al modo normal-->
+
+    <Button
+        android:id="@+id/btnNormal"
+        android:layout_width="155dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="152dp"
+        android:backgroundTint="@color/Orange"
+        android:onClick="btnNormalInicio"
+        android:text="Normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--Incluimos el boton para pasar al modo combate-->
+
+    <Button
+        android:id="@+id/btnCombate"
+        android:text="V.S"
+        android:backgroundTint="@color/Orange"
+        android:layout_width="155dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="152dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="btnCombateInicio"/>
+
+    <!--Incluimos la imagen de inicio-->
+
+    <ImageView
+        android:id="@+id/imgInicio"
+        android:layout_width="134dp"
+        android:layout_height="322dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBatalla"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tituloCoinFlipper"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/imgmanolanza" />
+
+    <!--Incluimos el aceca de que nos abrira un mensaje con el contenido de acerca de -->
+
+    <TextView
+        android:id="@+id/AcercaDe"
+        android:layout_width="79dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="40dp"
+        android:text="Acerca de "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/Azul"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
