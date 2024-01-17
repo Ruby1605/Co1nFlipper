@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import java.util.Locale
 
 
 class Normal : AppCompatActivity() {
@@ -67,19 +68,27 @@ class Normal : AppCompatActivity() {
                 lanzarMoneda()
             }, 300)
         } else {
-            contador=0
             val resultado = (1..2).random()
-            if (resultado == 1) {
-                imagenMoneda.setImageResource(R.drawable.monedadecara)
-                txtResultado.text = "      Ha salido cara"
+            val idiomaDispositivo = Locale.getDefault().language
+            contador=0
+            if (idiomaDispositivo == "en") {
+                if (resultado == 1) {
+                    imagenMoneda.setImageResource(R.drawable.monedadecara)
+                    txtResultado.text = "      It's face"
+                } else {
+                    imagenMoneda.setImageResource(R.drawable.monedacruz)
+                    txtResultado.text = "      It's cross"
+                }
             } else {
-                imagenMoneda.setImageResource(R.drawable.monedacruz)
-                txtResultado.text = "      Ha salido cruz"
+                if (resultado == 1) {
+                    imagenMoneda.setImageResource(R.drawable.monedadecara)
+                    txtResultado.text = "      Ha salido cara"
+                } else {
+                    imagenMoneda.setImageResource(R.drawable.monedacruz)
+                    txtResultado.text = "      Ha salido cruz"
+                }
             }
-
         }
-
-
     }
 
 }

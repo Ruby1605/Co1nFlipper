@@ -35,7 +35,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="44dp"
         android:backgroundTint="@color/Orange"
-        android:text="LANZAR"
+        android:text="@string/Lanzar"
         app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
         android:layout_width="284dp"
         android:layout_height="65dp"
         android:layout_marginBottom="32dp"
-        android:text=""
+        android:text="@string/txtResult"
         app:layout_constraintBottom_toTopOf="@+id/lanzarNormal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

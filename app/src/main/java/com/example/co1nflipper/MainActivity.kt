@@ -8,7 +8,7 @@ import android.widget.TextView
 import android.view.View
 import android.app.AlertDialog
 import android.content.DialogInterface
-
+import java.util.Locale
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,18 +58,34 @@ class MainActivity : AppCompatActivity() {
     // Función para mostrar el diálogo de Acerca De
     private fun mostrarDialogoAcercaDe() {
         val builder = AlertDialog.Builder(this)
+        val idiomaDispositivo = Locale.getDefault().language
+        if (idiomaDispositivo == "en"){
+            builder.setTitle("About")
+                .setMessage("This is an application made by Ruben Casado Ruiz, the objective of this" +
+                        "application is to do a very simple action of flipping a coin and getting a " +
+                        "value (Face or Cross). You can choose between two game modes, normal mode and combat mode," +
+                        "the normal mode being an emulation of flipping the coin and in combat mode you can " +
+                        "introduce two players.")
+                .setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, _ ->
+                    dialog.dismiss()
+                })
 
-        builder.setTitle("Acerca de")
-            .setMessage("Esta es una aplicación hecha por Ruben Casado Ruiz,el objetivo de dicha " +
+            val dialog = builder.create()
+            dialog.show()
+
+        }else{
+            builder.setTitle("Acerca de")
+            .setMessage("Esta es una aplicación esta hecha por Ruben Casado Ruiz,el objetivo de dicha " +
                     "aplicacion es hacer una acción muy sencilla de lanzar una moneda y que salga un " +
-                    "valor (Cara o Cruz).")
+                    "valor (Cara o Cruz). Podras elegir entre dos modos de juego, el modo normal y el modo combate," +
+                    "siendo el modo normal una emulacion de lanzar la moneda al aire y elen modo combate podras " +
+                    "introducir dos jugadores.")
             .setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, _ ->
                 dialog.dismiss()
             })
 
-        val dialog = builder.create()
-        dialog.show()
+            val dialog = builder.create()
+            dialog.show()
+        }
     }
-
-
 }

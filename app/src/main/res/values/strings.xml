@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Co1nFlipper</string>
+    <string name="btnNormal">Normal</string>
+    <string name="modoCombate">V.S</string>
+    <string name="Acercade">Acerca de</string>
+    <string name="Lanzar">LANZAR</string>
+    <string name="txtResult"> </string>
+    <string name="txtResultCombate"> </string>
+    <string name="Cara">Cara</string>
+    <string name="Cruz">Cruz</string>
+    <string name="Jugador1">Jugador 1</string>
+    <string name="Jugador2">Jugador 2</string>
 
     <style name="TituloEstilo">
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -9,4 +19,5 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">28dp</item>
     </style>
+
 </resources>

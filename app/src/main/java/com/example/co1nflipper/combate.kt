@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import java.util.Locale
 
 class combate : AppCompatActivity() {
     //inicializamos las variables
@@ -74,17 +75,30 @@ class combate : AppCompatActivity() {
             contador=0
             var jug1 = jugador1.text.toString()
             var jug2 = jugador2.text.toString()
+            val idiomaDispositivo = Locale.getDefault().language
             val resultado = (1..2).random()
-            if (resultado == 1) {
-                imagenMoneda.setImageResource(R.drawable.monedadecara)
-                txtResultado.text = "        Ha salido cara \n" +
-                        "   ¡Has ganado $jug1!"
-            } else {
-                imagenMoneda.setImageResource(R.drawable.monedacruz)
-                txtResultado.text = "        Ha salido cruz\n" +
-                        "   ¡Has ganado $jug2!"
-            }
 
+            if (idiomaDispositivo == "en") {
+                if (resultado == 1) {
+                    imagenMoneda.setImageResource(R.drawable.monedadecara)
+                    txtResultado.text = "              It's face\n" +
+                            "   You have won $jug1!"
+                } else {
+                    imagenMoneda.setImageResource(R.drawable.monedacruz)
+                    txtResultado.text = "            It's cross\n" +
+                            "   You have won $jug2!"
+                }
+            } else {
+                if (resultado == 1) {
+                    imagenMoneda.setImageResource(R.drawable.monedadecara)
+                    txtResultado.text = "           Ha salido cara \n" +
+                            "   ¡Has ganado $jug1!"
+                } else {
+                    imagenMoneda.setImageResource(R.drawable.monedacruz)
+                    txtResultado.text = "           Ha salido cruz\n" +
+                            "   ¡Has ganado $jug2!"
+                }
+            }
         }
 
 

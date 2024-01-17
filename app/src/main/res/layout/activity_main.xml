@@ -35,7 +35,7 @@
         android:layout_marginBottom="152dp"
         android:backgroundTint="@color/Orange"
         android:onClick="btnNormalInicio"
-        android:text="Normal"
+        android:text="@string/btnNormal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -43,7 +43,7 @@
 
     <Button
         android:id="@+id/btnCombate"
-        android:text="V.S"
+        android:text="@string/modoCombate"
         android:backgroundTint="@color/Orange"
         android:layout_width="155dp"
         android:layout_height="80dp"
@@ -76,7 +76,7 @@
         android:layout_width="79dp"
         android:layout_height="34dp"
         android:layout_marginBottom="40dp"
-        android:text="Acerca de "
+        android:text="@string/Acercade"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

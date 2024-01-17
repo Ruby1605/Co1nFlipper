@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Co1nFlipper</string>
+    <string name="btnNormal">Normal</string>
+    <string name="modoCombate">V.S</string>
+    <string name="Acercade">About</string>
+    <string name="Lanzar">THROW</string>
+    <string name="txtResult">" "</string>
+    <string name="txtResultCombate">" "</string>
+    <string name="Cara">Face</string>
+    <string name="Cruz">Cross</string>
+    <string name="Jugador1">Player 1</string>
+    <string name="Jugador2">Player 2</string>
+</resources>
