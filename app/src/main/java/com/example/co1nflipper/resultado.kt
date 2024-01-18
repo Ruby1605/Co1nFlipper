@@ -87,7 +87,7 @@ class resultado : AppCompatActivity() {
         val btn = Intent(this, combate::class.java)
         startActivity(btn)
     }
-//funcion para añadir resultados a la lista
+//funcion para Cargar los resultados resultados a la lista
     private fun cargarResultado(){
     val resultados = database.getResultados()
     val listaResultados = ArrayList<String>()
