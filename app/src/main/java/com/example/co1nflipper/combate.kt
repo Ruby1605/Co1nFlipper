@@ -18,12 +18,17 @@ class combate : AppCompatActivity() {
     lateinit var txtResultado : TextView
     lateinit var jugador1 : EditText
     lateinit var jugador2 : EditText
+    private lateinit var database: CoinFlipDatabase
+
     //inicializamos el contador y el total de ciclos
     var contador = 0
     val totalCiclos = 10
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_combate)
+
+        database = CoinFlipDatabase(this)
+
 
         btnLanzar = findViewById(R.id.btnLanzarCombate)
         imagenMoneda = findViewById(R.id.imgMonedaCombate)
@@ -72,6 +77,7 @@ class combate : AppCompatActivity() {
                 lanzarMoneda()
             }, 300)
         } else {
+            var resultadoBase = ""
             contador=0
             var jug1 = jugador1.text.toString()
             var jug2 = jugador2.text.toString()
@@ -83,22 +89,29 @@ class combate : AppCompatActivity() {
                     imagenMoneda.setImageResource(R.drawable.monedadecara)
                     txtResultado.text = "              It's face\n" +
                             "   You have won $jug1!"
+                    resultadoBase = "Combate(En)\nFace.jug1 has win"
+
                 } else {
                     imagenMoneda.setImageResource(R.drawable.monedacruz)
                     txtResultado.text = "            It's cross\n" +
                             "   You have won $jug2!"
+                    resultadoBase = "Combate(En)\nCross.$jug2 has win"
+
                 }
             } else {
                 if (resultado == 1) {
                     imagenMoneda.setImageResource(R.drawable.monedadecara)
                     txtResultado.text = "           Ha salido cara \n" +
                             "   ¡Has ganado $jug1!"
+                    resultadoBase = "Combate\nCara.Ha ganado $jug1"
                 } else {
                     imagenMoneda.setImageResource(R.drawable.monedacruz)
                     txtResultado.text = "           Ha salido cruz\n" +
                             "   ¡Has ganado $jug2!"
+                    resultadoBase = "Combate\nCruz.Ha ganado $jug2"
                 }
             }
+            database.insertarResultados(resultadoBase)
         }
 
 
