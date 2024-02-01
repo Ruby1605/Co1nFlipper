@@ -9,22 +9,73 @@ import android.view.View
 import android.app.AlertDialog
 import android.content.DialogInterface
 import java.util.Locale
-
+import android.widget.PopupMenu
+import android.content.Context
+import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setDayNight()
         setContentView(R.layout.activity_main)
-
-        val textViewAcercaDe: TextView = findViewById(R.id.AcercaDe)
-
-        textViewAcercaDe.setOnClickListener {
+        val acercaDe = findViewById<TextView>(R.id.AcercaDe)
+        acercaDe.setOnClickListener {
             mostrarDialogoAcercaDe()
         }
 
 
+    }
+
+    fun setDayNight() {
+        val sharedPreferences = getSharedPreferences("preferencias", Context.MODE_PRIVATE)
+        val theme = sharedPreferences.getBoolean("modoNocturno", false)
+        if (theme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            delegate.applyDayNight()
+            sharedPreferences.edit().putBoolean("modoNocturno", true).apply()
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            delegate.applyDayNight()
+            sharedPreferences.edit().putBoolean("modoNocturno", false).apply()
+        }
+    }
+
+    fun showOverflowMenu(view: View) {
+        val popupMenu = PopupMenu(this, view)
+
+        // Agregar opciones al menú desplegable
+        popupMenu.menu.add("Mapas")
+        popupMenu.menu.add("Acerca de")
+        popupMenu.menu.add("Opciones")
+
+
+        // Manejar clics en las opciones del menú
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.title) {
+                "Mapas" -> {
+                    //val btn = Intent(this, Acercade::class.java)
+                    //startActivity(btn)
+                    true
+                }
+                "Opciones" -> {
+                    val btn = Intent(this, Opciones::class.java)
+                    startActivity(btn)
+                    true
+                }
+                "Acerca de" -> {
+                    //val btn = Intent(this, Acercade::class.java)
+                    //startActivity(btn)
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+        // Mostrar el menú desplegable
+        popupMenu.show()
     }
 
 

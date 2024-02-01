@@ -14,7 +14,8 @@
             style="@style/TituloEstilo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="COINFLIPPER" />
+            android:text="COINFLIPPER"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -41,8 +42,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/resultado"
+                android:layout_marginRight="20dp"
+                android:onClick="btnResultado"
+                android:layout_toStartOf="@+id/menudeplegable"
+                />
+            <ImageView
+                android:id="@+id/menudeplegable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="showOverflowMenu"
+                android:src="@drawable/menu"
                 android:layout_alignParentEnd="true"
-                android:onClick="btnResultado"/>
+                />
+
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 </com.google.android.material.appbar.AppBarLayout>

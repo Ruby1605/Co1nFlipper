@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 
 class resultado : AppCompatActivity() {
@@ -89,15 +88,15 @@ class resultado : AppCompatActivity() {
     }
 //funcion para Cargar los resultados resultados a la lista
     private fun cargarResultado(){
-    val resultados = database.getResultados()
-    val listaResultados = ArrayList<String>()
+        val resultados = database.getResultados()
+        val listaResultados = ArrayList<String>()
 
-    while (resultados.moveToNext()) {
+        while (resultados.moveToNext()) {
         listaResultados.add(resultados.getString(resultados.getColumnIndexOrThrow(CoinFlipDatabase.COLUMN_RESULT)))
-    }
+        }
 
-    lista = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaResultados)
-    listView.adapter = lista
+        lista = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaResultados)
+        listView.adapter = lista
 }
     }
 
