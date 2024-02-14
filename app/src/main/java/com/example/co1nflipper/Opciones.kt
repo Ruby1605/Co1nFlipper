@@ -11,11 +11,13 @@ import android.content.Context
 
 class Opciones : AppCompatActivity() {
     private lateinit var swtchOscuro : Switch
+    private lateinit var swtchNoti : Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_opciones)
         swtchOscuro = findViewById(R.id.swtchOscuro)
+        swtchNoti = findViewById(R.id.swtchNoti)
 
         swtchOscuro.setOnCheckedChangeListener { buttonView, isChecked ->
             val sharedPreferences = getSharedPreferences("preferencias", Context.MODE_PRIVATE)
@@ -27,6 +29,11 @@ class Opciones : AppCompatActivity() {
                 swtchOscuro.isChecked = false
                 cambiarClaro()
             }
+        }
+
+        swtchNoti.setOnCheckedChangeListener { buttonView, isChecked ->
+            val sharedPreferences = getSharedPreferences("preferencias", Context.MODE_PRIVATE)
+            sharedPreferences.edit().putBoolean("notificaciones", isChecked).apply()
         }
 
     }
@@ -60,13 +67,13 @@ class Opciones : AppCompatActivity() {
                     true
                 }
                 "Mapas" -> {
-                    //val btn = Intent(this, Acercade::class.java)
-                    //startActivity(btn)
+                    val btn = Intent(this, Mapas::class.java)
+                    startActivity(btn)
                     true
                 }
                 "Acerca de" -> {
-                    //val btn = Intent(this, Acercade::class.java)
-                    //startActivity(btn)
+                    val btn = Intent(this, AcercaDe::class.java)
+                    startActivity(btn)
                     true
                 }
 

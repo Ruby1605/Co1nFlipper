@@ -10,6 +10,13 @@
     <string name="Cruz">Cruz</string>
     <string name="Jugador1">Jugador 1</string>
     <string name="Jugador2">Jugador 2</string>
+    <string name="textoAcercade">Esta es una aplicación esta hecha por Ruben Casado Ruiz,el objetivo de dicha aplicacion es hacer una acción muy sencilla de lanzar una moneda y que salga un valor (Cara o Cruz). Podras elegir entre dos modos de juego, el modo normal y el modo combate,siendo el modo normal una emulacion de lanzar la moneda al aire y elen modo combate podras introducir dos jugadores.<br />Ademas ofrecemos un mapa en el cual se podria interactuar con el para saber donde se ha lanzado la moneda desde cualquier parte del mundo,con una lista de lugares donde se ha lanzado. </string>
+    <string name="txtMapa">CoinMaps</string>
+    <string name="btnGuardarUbi">Guardar ubicacion del lanzamiento</string>
+    <string name="txtResultadoMapas">Ubicaciones de lanzamientos</string>
+    <string name="txtMenuOpciones">Menú de Opciones</string>
+    <string name="txtUbicacion">Ubicación</string>
+
 
     <style name="TituloEstilo">
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -19,6 +26,11 @@
     <style name="EstiloResultado">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">28dp</item>
+    </style>
+
+    <style name="EstiloParrafo">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">18dp</item>
     </style>
 
 </resources>

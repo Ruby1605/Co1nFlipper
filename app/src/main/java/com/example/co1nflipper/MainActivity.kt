@@ -12,8 +12,17 @@ import java.util.Locale
 import android.widget.PopupMenu
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
+import android.app.NotificationManager
+import android.app.NotificationChannel
+import android.os.Build
+import android.app.PendingIntent
+import android.app.AlarmManager
+import java.util.Calendar
+import com.example.co1nflipper.AlarmNotification.Companion.NOTIFICATION_ID
+import android.os.SystemClock
 
 class MainActivity : AppCompatActivity() {
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+// Función para cambiar el tema de la aplicación
     fun setDayNight() {
         val sharedPreferences = getSharedPreferences("preferencias", Context.MODE_PRIVATE)
         val theme = sharedPreferences.getBoolean("modoNocturno", false)
@@ -42,21 +52,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //Menu desplegable  del ActionBar
+
     fun showOverflowMenu(view: View) {
         val popupMenu = PopupMenu(this, view)
 
         // Agregar opciones al menú desplegable
         popupMenu.menu.add("Mapas")
-        popupMenu.menu.add("Acerca de")
         popupMenu.menu.add("Opciones")
+        popupMenu.menu.add("Acerca de")
+
 
 
         // Manejar clics en las opciones del menú
         popupMenu.setOnMenuItemClickListener { menuItem ->
             when (menuItem.title) {
                 "Mapas" -> {
-                    //val btn = Intent(this, Acercade::class.java)
-                    //startActivity(btn)
+                    val btn = Intent(this, Mapas::class.java)
+                    startActivity(btn)
                     true
                 }
                 "Opciones" -> {
@@ -65,8 +78,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 "Acerca de" -> {
-                    //val btn = Intent(this, Acercade::class.java)
-                    //startActivity(btn)
+                    val btn = Intent(this, AcercaDe::class.java)
+                    startActivity(btn)
                     true
                 }
 
@@ -116,7 +129,7 @@ class MainActivity : AppCompatActivity() {
                         "application is to do a very simple action of flipping a coin and getting a " +
                         "value (Face or Cross). You can choose between two game modes, normal mode and combat mode," +
                         "the normal mode being an emulation of flipping the coin and in combat mode you can " +
-                        "introduce two players.")
+                        "introduce two players. More information in the options section.")
                 .setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, _ ->
                     dialog.dismiss()
                 })
@@ -130,7 +143,7 @@ class MainActivity : AppCompatActivity() {
                     "aplicacion es hacer una acción muy sencilla de lanzar una moneda y que salga un " +
                     "valor (Cara o Cruz). Podras elegir entre dos modos de juego, el modo normal y el modo combate," +
                     "siendo el modo normal una emulacion de lanzar la moneda al aire y elen modo combate podras " +
-                    "introducir dos jugadores.")
+                    "introducir dos jugadores. Mas informacion en la seccion de opciones.")
             .setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, _ ->
                 dialog.dismiss()
             })

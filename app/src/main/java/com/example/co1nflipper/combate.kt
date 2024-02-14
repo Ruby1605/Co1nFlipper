@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.PopupMenu
 import android.widget.TextView
 import java.util.Locale
 
@@ -42,6 +43,42 @@ class combate : AppCompatActivity() {
         btnLanzar.setOnClickListener {
             lanzarMoneda()
         }
+    }
+
+    fun showOverflowMenu(view: View) {
+        val popupMenu = PopupMenu(this, view)
+
+        // Agregar opciones al menú desplegable
+        popupMenu.menu.add("Mapas")
+        popupMenu.menu.add("Acerca de")
+        popupMenu.menu.add("Opciones")
+
+
+        // Manejar clics en las opciones del menú
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.title) {
+                "Mapas" -> {
+                    val btn = Intent(this, Mapas::class.java)
+                    startActivity(btn)
+                    true
+                }
+                "Opciones" -> {
+                    val btn = Intent(this, Opciones::class.java)
+                    startActivity(btn)
+                    true
+                }
+                "Acerca de" -> {
+                    val btn = Intent(this, AcercaDe::class.java)
+                    startActivity(btn)
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+        // Mostrar el menú desplegable
+        popupMenu.show()
     }
 
     // Función para cambiar de actividad a la de "Main"

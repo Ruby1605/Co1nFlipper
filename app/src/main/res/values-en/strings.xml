@@ -11,4 +11,10 @@
     <string name="Cruz">Cross</string>
     <string name="Jugador1">Player 1</string>
     <string name="Jugador2">Player 2</string>
+    <string name="textoAcercade">"This is an application made by Ruben Casado Ruiz, the objective of this application is to do a very simple action of tossing a coin and having a value come out (Heads or Tails). You can choose between two game modes, normal mode and combat mode, with normal mode being an emulation of flipping the coin and in combat mode you can enter two players. We also offer a map in which you could interact with to find out where the coin has been launched from anywhere in the world, with a list of places where it has been launched. "</string>
+    <string name="txtMapa">CoinMaps</string>
+    <string name="btnGuardarUbi">Save launch location</string>
+    <string name="txtResultadoMapas">"Launch Locations "</string>
+    <string name="txtMenuOpciones">Options Menu</string>
+    <string name="txtUbicacion">Location</string>
 </resources>

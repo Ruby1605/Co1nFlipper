@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.ArrayAdapter
+import android.widget.PopupMenu
 import androidx.appcompat.app.AlertDialog
 
 class resultado : AppCompatActivity() {
@@ -69,6 +70,41 @@ class resultado : AppCompatActivity() {
         }
 
         cargarResultado()
+    }
+    fun showOverflowMenu(view: View) {
+        val popupMenu = PopupMenu(this, view)
+
+        // Agregar opciones al menú desplegable
+        popupMenu.menu.add("Mapas")
+        popupMenu.menu.add("Acerca de")
+        popupMenu.menu.add("Opciones")
+
+
+        // Manejar clics en las opciones del menú
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.title) {
+                "Mapas" -> {
+                    val btn = Intent(this, Mapas::class.java)
+                    startActivity(btn)
+                    true
+                }
+                "Opciones" -> {
+                    val btn = Intent(this, Opciones::class.java)
+                    startActivity(btn)
+                    true
+                }
+                "Acerca de" -> {
+                    val btn = Intent(this, AcercaDe::class.java)
+                    startActivity(btn)
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+        // Mostrar el menú desplegable
+        popupMenu.show()
     }
 
     // Función para cambiar de actividad a la de "Main"
